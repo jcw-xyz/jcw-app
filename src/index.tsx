@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 import store from './store';
 import './styles/build/index.css';
-import LoadingSpinner from './components/core/LoadingSpinner';
+// import LoadingSpinner from './components/core/LoadingSpinner';
 import { Header, Layout, Nav, ConnectWS } from './components/layout';
 import NotFound from './components/pages/NotFound';
 const LiveProfit = lazy(() => import('./components/pages/LiveProfit'));
@@ -34,7 +34,7 @@ function Root() {
             <ConnectWS>
                 <Layout>
                     <Header path={path} />
-                    <Suspense fallback={<LoadingSpinner />}>{routeResult || <NotFound />}</Suspense>
+                    <Suspense fallback={<></>}>{routeResult || <NotFound />}</Suspense>
                     <Nav />
                 </Layout>
             </ConnectWS>
