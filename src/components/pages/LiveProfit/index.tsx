@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import _ from 'lodash';
 import { Content } from '../../core';
@@ -6,7 +6,7 @@ import { RootState } from '../../../types';
 import actions from '../../../store/ws/wsActions';
 import HashrateCard from './HashrateCard';
 
-export default function LiveProfit() {
+function LiveProfit() {
     const dispatch = useDispatch();
     const connection: any = useSelector<RootState>((state) => state.ws.connection);
     const hashrate: any = useSelector<RootState>((state) => state.ws.hashrate);
@@ -88,3 +88,5 @@ export default function LiveProfit() {
         </Content>
     );
 }
+
+export default memo(LiveProfit);

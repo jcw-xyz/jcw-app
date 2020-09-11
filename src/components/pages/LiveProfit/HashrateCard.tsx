@@ -51,7 +51,7 @@ function HashrateCard({
                         className={`relative h-4 ${
                             percent >= 70
                                 ? 'bg-green-700 text-right'
-                                : percent >= 30
+                                : percent >= 38
                                 ? 'bg-yellow-600 text-right'
                                 : 'bg-red-700 text-left'
                         } rounded-md`}
@@ -61,7 +61,7 @@ function HashrateCard({
                     >
                         <div
                             className={`absolute pt-1 -mt-12 leading-tight ${
-                                percent < 30 ? 'left-0 w-64' : 'right-2 w-auto'
+                                percent < 38 ? 'left-0 w-64' : 'right-2 w-auto'
                             }`}
                         >
                             <h1>{isEquihashUSD(usd)} ¢</h1>
