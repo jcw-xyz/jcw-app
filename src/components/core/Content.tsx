@@ -1,9 +1,7 @@
-import React from 'react';
+import styled from 'styled-components';
 
-export default function Content({ children }: { children: any }) {
-    return (
-        <div className='h-screen px-4 pt-20 pb-24 overflow-y-scroll scrolling-touch'>
-            {children}
-        </div>
-    );
-}
+const Content = styled.div.attrs((props) => ({
+    className: `h-screen px-4 pt-20 pb-24 overflow-y-scroll scrolling-touch ${props}`,
+}))``;
+
+export default Content;
