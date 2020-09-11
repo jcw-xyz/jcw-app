@@ -32,15 +32,8 @@ export default function BlockCard({
     is_stale: boolean;
 }) {
     const img_url: any = useSelector<RootState>((state) => state.api.img_url);
-    const imgPath = _.find(img_url, (o) => {
-        if (o.name.trim() === coin_name.trim()) {
-            console.log(o);
-            return `https://images.prohashing.com/coins/${o.image_filename}`;
-        } else {
-            console.log(img_url);
-            return `https://images.prohashing.com/coins/${o.image_filename}`;
-        }
-    });
+    const coin = _.find(img_url, ['name', coin_name]);
+    const imgPath = `https://images.prohashing.com/coins/${coin.image_filename}`;
 
     const [now] = useState(new Date());
 

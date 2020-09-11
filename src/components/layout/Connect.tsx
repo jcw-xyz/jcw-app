@@ -20,7 +20,7 @@ export default function Connect({ children }: { children: any }) {
         dispatch({
             type: wsActions.CONNECT,
         });
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         if (connection) {
@@ -55,21 +55,21 @@ export default function Connect({ children }: { children: any }) {
                 connection.removeAllListeners();
             };
         }
-    }, [connection]);
+    }, [dispatch, connection]);
 
     useEffect(() => {
         dispatch({
             type: wsActions.UPDATE_PROFIBILITY,
             profitability: _.unionBy(incoming, profitability, 'algorithm_name'),
         });
-    }, [incoming]);
+    }, [dispatch, incoming]);
 
     useEffect(() => {
         dispatch({
             type: wsActions.RECENT_BLOCK,
             blocks: newBlocks && blocks ? _.unionBy(newBlocks, blocks, 'block_hash') : [],
         });
-    }, [newBlocks]);
+    }, [dispatch, newBlocks]);
 
     return <>{children}</>;
 }
