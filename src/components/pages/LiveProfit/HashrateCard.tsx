@@ -57,6 +57,7 @@ function HashrateCard({
                         } rounded-md`}
                         style={{
                             width: `${percent}%`,
+                            transition: 'width 2s',
                         }}
                     >
                         <div

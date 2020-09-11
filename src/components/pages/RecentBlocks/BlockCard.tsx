@@ -38,7 +38,7 @@ export default function BlockCard({
     const [now] = useState(new Date());
 
     return (
-        <Card className='flex justify-between text-xs lg:text-base'>
+        <Card className='flex justify-between text-xs fade-in lg:text-base'>
             <div className='float-left w-1/5 h-full'>
                 <div className='w-12 lg:w-16 lg:h-16'>
                     <img className='object-contain' src={imgPath} alt='coin' />
