@@ -59,7 +59,7 @@ export default function RecentBlocks() {
                                     </span>
                                     <h1 className='text-app_ivory'>Immature</h1>
                                 </div>
-                                <div className='mt-3'>
+                                <div className='mt-8'>
                                     <div className='text-xs text-app_gray lg:text-base'>
                                         <FontAwesomeIcon icon={faCube} />
                                         <span className='ml-1'>2,548,852</span>
