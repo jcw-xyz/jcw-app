@@ -40,7 +40,7 @@ export default function BlockCard({
     return (
         <Card className='flex justify-between text-xs lg:text-base'>
             <div className='float-left w-1/5 h-full'>
-                <div className='w-12 h-12 lg:w-16 lg:h-16'>
+                <div className='w-12 lg:w-16 lg:h-16'>
                     <img className='object-contain' src={imgPath} alt='coin' />
                 </div>
                 <div className='mt-2'>
