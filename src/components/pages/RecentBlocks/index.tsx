@@ -8,7 +8,7 @@ export default function RecentBlocks() {
         <Content>
             <ul>
                 <Card className='flex'>
-                    <div className='float-left w-1/4 h-full ml-0 lg:ml-4 lg:w-1/5'>
+                    <div className='float-left w-1/4 h-full ml-0 lg:w-1/5'>
                         <div className='w-12 h-12 lg:w-16 lg:h-16'>
                             <img
                                 className='object-contain'
@@ -44,7 +44,7 @@ export default function RecentBlocks() {
                                 <h1 className='to-app_ivory'>0</h1>
                             </div>
                         </div>
-                        <div className='w-1/3 mr-0 text-right lg:mr-4'>
+                        <div className='w-1/3 mr-0 text-right'>
                             <div>
                                 <span className='text-xs text-app_gray lg:text-base'>Status</span>
                                 <h1 className='text-app_ivory'>Immature</h1>
