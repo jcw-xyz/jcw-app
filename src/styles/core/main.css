@@ -1,0 +1,14 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+html {
+    @apply bg-black;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@tailwind utilities;
