@@ -48,18 +48,22 @@ function HashrateCard({
             <div className='mt-12'>
                 <div className='w-auto h-4 rounded-md bg-app_ivory'>
                     <div
-                        className={`relative h-4 text-right ${
+                        className={`relative h-4 ${
                             percent >= 70
-                                ? 'bg-green-700'
-                                : percent >= 40
-                                ? 'bg-yellow-600'
-                                : 'bg-red-700'
+                                ? 'bg-green-700 text-right'
+                                : percent >= 30
+                                ? 'bg-yellow-600 text-right'
+                                : 'bg-red-700 text-left'
                         } rounded-md`}
                         style={{
                             width: `${percent}%`,
                         }}
                     >
-                        <div className='absolute w-64 pt-1 -mt-12 leading-tight right-2'>
+                        <div
+                            className={`absolute pt-1 -mt-12 leading-tight ${
+                                percent < 30 ? 'left-0 w-64' : 'right-2 w-auto'
+                            }`}
+                        >
                             <h1>{isEquihashUSD(usd)} ¢</h1>
                             <span className='text-xs text-app_gray'>{isEquihashBTC(btc)} BTC</span>
                         </div>
