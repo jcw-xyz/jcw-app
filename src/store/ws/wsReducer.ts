@@ -1,7 +1,6 @@
 import actions from './wsActions';
 
 const defaultState = {
-    today: new Date(),
     blocks: [],
 };
 export function wsReducer(state = defaultState, action: any) {

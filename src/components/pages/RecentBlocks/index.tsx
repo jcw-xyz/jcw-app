@@ -22,7 +22,6 @@ export default function RecentBlocks() {
                             auxiliary,
                             algorithm,
                             is_stale,
-                            data_timestamp,
                         }: {
                             worker_name: string;
                             coin_name: string;
@@ -34,10 +33,9 @@ export default function RecentBlocks() {
                             auxiliary: boolean;
                             algorithm: string;
                             is_stale: boolean;
-                            data_timestamp: number;
                         }) => (
                             <BlockCard
-                                key={coin_name + block_height || Math.random()}
+                                key={coin_name + block_height}
                                 worker_name={worker_name || 'Null'}
                                 coin_name={coin_name || 'Null'}
                                 is_accepted={is_accepted || false}
@@ -48,7 +46,6 @@ export default function RecentBlocks() {
                                 auxiliary={auxiliary || false}
                                 algorithm={algorithm || 'Null'}
                                 is_stale={is_stale || false}
-                                data_timestamp={data_timestamp || 0}
                             />
                         )
                     )}

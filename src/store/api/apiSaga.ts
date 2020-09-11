@@ -5,10 +5,7 @@ import { SUCCESS, FAILED, ERROR } from './constant';
 
 function* getImgUrl() {
     try {
-        const res = yield call(
-            axios.get,
-            'https://cors-anywhere.herokuapp.com/' + 'https://prohashing.com/coin/images'
-        );
+        const res = yield call(axios.get, 'coin/images');
 
         if (res.status === 200) {
             yield put({

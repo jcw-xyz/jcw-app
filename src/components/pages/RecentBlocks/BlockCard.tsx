@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../types';
 import { Card } from '../../core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCube } from '@fortawesome/free-solid-svg-icons';
+import ReactTimeAgo from 'react-time-ago';
 import stringToFixed from '../../../utils/stringToFixed';
 import _ from 'lodash';
-import timeSince from '../../../utils/timeSince';
 
 export default function BlockCard({
     worker_name,
@@ -19,7 +19,6 @@ export default function BlockCard({
     auxiliary,
     algorithm,
     is_stale,
-    data_timestamp,
 }: {
     worker_name: string;
     coin_name: string;
@@ -31,14 +30,12 @@ export default function BlockCard({
     auxiliary: boolean;
     algorithm: string;
     is_stale: boolean;
-    data_timestamp: number;
 }) {
-    const today: any = useSelector<RootState>((state) => state.ws.today);
     const img_url: any = useSelector<RootState>((state) => state.api.img_url);
     const coin = _.find(img_url, (o) => (o.name === coin_name ? o.image_filename : 'none'));
-    const imgPath = `https://images.prohashing.com/coins/${coin.image_filename}`;
-    const now = new Date();
-    console.log(now.getTime() - data_timestamp);
+    const imgPath = `https://images.prohashing.com/coins/${coin && coin.image_filename}`;
+
+    const [now] = useState(new Date());
 
     return (
         <Card className='flex justify-between text-xs lg:text-base'>
@@ -86,9 +83,7 @@ export default function BlockCard({
                                 {block_height.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                             </span>
                         </div>
-                        <h1 className='text-app_ivory'>
-                            {timeSince(today.getTime(), data_timestamp)} ago
-                        </h1>
+                        <ReactTimeAgo className='text-app_ivory' date={now} />
                     </div>
                 </div>
             </div>
