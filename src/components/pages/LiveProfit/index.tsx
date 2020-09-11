@@ -1,52 +1,13 @@
-import React, { useEffect, useState, memo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import _ from 'lodash';
+import React, { memo } from 'react';
+import { useSelector } from 'react-redux';
 import { Content } from '../../core';
 import { RootState } from '../../../types';
-import actions from '../../../store/ws/wsActions';
 import HashrateCard from './HashrateCard';
 
 function LiveProfit() {
-    const dispatch = useDispatch();
-    const connection: any = useSelector<RootState>((state) => state.ws.connection);
     const hashrate: any = useSelector<RootState>((state) => state.ws.hashrate);
     const system: any = useSelector<RootState>((state) => state.ws.system_status);
     const profitability: any = useSelector<RootState>((state) => state.ws.profitability);
-    const [incoming, setIncoming] = useState();
-
-    useEffect(() => {
-        connection.on('profitability', (update: any) => {
-            const { ...rest } = update[0] ? update[0] : update;
-            setIncoming(Object.values(rest));
-        });
-        connection.on('systemStatus', (update: any) => {
-            const {
-                subscriptions_count,
-                block_template_count,
-                total_hashrate_with_defaults,
-            } = update[0] ? update[0] : update;
-
-            dispatch({
-                type: actions.UPDATE_SYSTEM_STATUS,
-                system_status: [subscriptions_count, block_template_count],
-            });
-
-            dispatch({
-                type: actions.UPDATE_HASHRATE,
-                hashrate: { ...total_hashrate_with_defaults },
-            });
-        });
-        return () => {
-            connection.removeAllListeners();
-        };
-    }, []);
-
-    useEffect(() => {
-        dispatch({
-            type: actions.UPDATE_PROFIBILITY,
-            profitability: _.unionBy(incoming, profitability, 'algorithm_name'),
-        });
-    }, [incoming]);
 
     return (
         <Content>
