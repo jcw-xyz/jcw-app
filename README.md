@@ -1,7 +1,9 @@
-# sagaBoilerplate
+# jcw-app
 
-- redux
-- redux-saga
-- hookrouter
-- styled-components
-- tailwind
+## Todos
+
+-   [x] live profit page
+-   [ ] add live profit card bar animation
+-   [ ] recent blocks page
+-   [ ] charts page
+-   [ ] search page
