@@ -1,6 +1,9 @@
 import actions from './wsActions';
 
-const defaultState = {};
+const defaultState = {
+    today: new Date(),
+    blocks: [],
+};
 export function wsReducer(state = defaultState, action: any) {
     switch (action.type) {
         case actions.CONNECT:
@@ -21,7 +24,10 @@ export function wsReducer(state = defaultState, action: any) {
             // eslint-disable-next-line no-case-declarations
             const { hashrate } = action;
             return { ...state, hashrate };
-
+        case actions.RECENT_BLOCK:
+            // eslint-disable-next-line no-case-declarations
+            const { blocks } = action;
+            return { ...state, blocks };
         default:
             return state;
     }

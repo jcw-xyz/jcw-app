@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import store from './store';
 import './styles/build/index.css';
 // import LoadingSpinner from './components/core/LoadingSpinner';
-import { Header, Layout, Nav, ConnectWS } from './components/layout';
+import { Header, Layout, Nav, Connect } from './components/layout';
 import NotFound from './components/pages/NotFound';
 const LiveProfit = lazy(() => import('./components/pages/LiveProfit'));
 const RecentBlocks = lazy(() => import('./components/pages/RecentBlocks'));
@@ -31,13 +31,13 @@ function Root() {
     const path = usePath();
     return (
         <Provider store={store}>
-            <ConnectWS>
+            <Connect>
                 <Layout>
                     <Header path={path} />
                     <Suspense fallback={<></>}>{routeResult || <NotFound />}</Suspense>
                     <Nav />
                 </Layout>
-            </ConnectWS>
+            </Connect>
         </Provider>
     );
 }
