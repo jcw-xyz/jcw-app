@@ -59,7 +59,7 @@ function HashrateCard({
                             width: `${percent}%`,
                         }}
                     >
-                        <div className='absolute -mt-12 leading-tight right-2'>
+                        <div className='absolute w-64 pt-1 -mt-12 leading-tight right-2'>
                             <h1>{isEquihashUSD(usd)} ¢</h1>
                             <span className='text-xs text-app_gray'>{isEquihashBTC(btc)} BTC</span>
                         </div>
