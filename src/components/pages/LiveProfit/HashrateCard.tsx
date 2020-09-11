@@ -2,43 +2,72 @@ import React from 'react';
 import { Card } from '../../core';
 import hashrateUnitConverter from '../../../utils/hashrateUnitConverter';
 
-const HashrateCard = ({
+function HashrateCard({
     algorithm_name,
     usd,
     btc,
-    percentile_usd,
-    percentile_btc,
+    max_usd,
+    max_btc,
     hashrate,
 }: {
     algorithm_name: string;
     usd: number;
     btc: number;
-    percentile_usd: number;
-    percentile_btc: number;
+    max_usd: number;
+    max_btc: number;
     hashrate: number;
-}) => (
-    <Card>
-        <div className='flex'>
-            <div className='w-3/5'>
-                <h1 className='-mt-1 text-2xl font-medium'>{algorithm_name}</h1>
-                <span className='text-lg text-app_gray'>{hashrateUnitConverter(hashrate)}</span>
+}) {
+    const percent = Math.abs(usd / max_usd) * 100 >= 100 ? 100 : Math.abs(usd / max_usd) * 100;
+
+    function isEquihashUSD(payout: number) {
+        if (algorithm_name.includes('Equihash')) {
+            return (payout / 10).toFixed(6);
+        }
+        return (payout * 100).toFixed(6);
+    }
+
+    function isEquihashBTC(payout: number) {
+        if (algorithm_name.includes('Equihash')) {
+            return (payout / 10).toFixed(12);
+        }
+        return (payout * 100).toFixed(12);
+    }
+
+    return (
+        <Card>
+            <div className='flex'>
+                <div className='w-3/5'>
+                    <h1 className='-mt-1 text-2xl font-medium'>{algorithm_name}</h1>
+                    <span className='text-lg text-app_gray'>{hashrateUnitConverter(hashrate)}</span>
+                </div>
+                <div className='w-2/5 leading-tight text-right'>
+                    <h1>{isEquihashUSD(max_usd)} ¢</h1>
+                    <span className='text-xs text-app_gray'>{isEquihashBTC(max_btc)} BTC</span>
+                </div>
             </div>
-            <div className='w-2/5 leading-tight text-right'>
-                <h1>{(percentile_usd * 100).toFixed(3)} ¢</h1>
-                <span className='text-xs text-app_gray'>{percentile_btc.toFixed(9)} BTC</span>
-            </div>
-        </div>
-        <div className='mt-12'>
-            <div className='w-full h-4 rounded-md bg-app_ivory'>
-                <div className='relative w-64 h-4 text-right bg-green-700 rounded-md'>
-                    <div className='absolute -mt-12 leading-tight right-2'>
-                        <h1>{(usd * 100).toFixed(3)} ¢</h1>
-                        <span className='text-xs text-app_gray'>{btc.toFixed(9)} BTC</span>
+            <div className='mt-12'>
+                <div className='w-auto h-4 rounded-md bg-app_ivory'>
+                    <div
+                        className={`relative h-4 text-right ${
+                            percent >= 80
+                                ? 'bg-green-700'
+                                : percent >= 50
+                                ? 'bg-yellow-600'
+                                : 'bg-red-700'
+                        } rounded-md`}
+                        style={{
+                            width: `${percent}%`,
+                        }}
+                    >
+                        <div className='absolute -mt-12 leading-tight right-2'>
+                            <h1>{isEquihashUSD(usd)} ¢</h1>
+                            <span className='text-xs text-app_gray'>{isEquihashBTC(btc)} BTC</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </Card>
-);
+        </Card>
+    );
+}
 
 export default HashrateCard;

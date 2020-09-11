@@ -64,22 +64,22 @@ export default function LiveProfit() {
                             algorithm_name,
                             usd,
                             btc,
-                            percentile_usd,
-                            percentile_btc,
+                            max_usd,
+                            max_btc,
                         }: {
                             algorithm_name: string;
                             usd: number;
                             btc: number;
-                            percentile_usd: number;
-                            percentile_btc: number;
+                            max_usd: number;
+                            max_btc: number;
                         }) => (
                             <HashrateCard
                                 key={algorithm_name}
                                 algorithm_name={algorithm_name}
                                 usd={usd}
                                 btc={btc}
-                                percentile_usd={percentile_usd}
-                                percentile_btc={percentile_btc}
+                                max_usd={max_usd}
+                                max_btc={max_btc}
                                 hashrate={hashrate[algorithm_name] ? hashrate[algorithm_name] : 0}
                             />
                         )
