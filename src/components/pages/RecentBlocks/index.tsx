@@ -51,9 +51,7 @@ export default function RecentBlocks() {
                     )}
                 </ul>
             ) : (
-                <h1 className='pt-4 text-center text-app_gray'>
-                    Recent mined block takes awhile to appear
-                </h1>
+                <h1 className='pt-4 text-center text-app_gray'>Waiting for new blocks to appear</h1>
             )}
         </Content>
     );
