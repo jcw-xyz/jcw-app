@@ -52,9 +52,9 @@ function LiveProfit() {
         <Content>
             <div className='pl-4'>
                 <h1 className='text-app_gray'>Connected workers</h1>
-                <span className='text-2xl font-medium'>{system && system[0]}</span>
+                <span className='text-2xl font-medium text-app_ivory'>{system && system[0]}</span>
                 <h1 className='mt-2 text-app_gray'>Available blocks</h1>
-                <span className='text-2xl font-medium'>{system && system[1]}</span>
+                <span className='text-2xl font-medium text-app_ivory'>{system && system[1]}</span>
             </div>
             <ul className='mt-8'>
                 {profitability &&
