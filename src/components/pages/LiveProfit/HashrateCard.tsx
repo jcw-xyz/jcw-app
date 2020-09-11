@@ -49,9 +49,9 @@ function HashrateCard({
                 <div className='w-auto h-4 rounded-md bg-app_ivory'>
                     <div
                         className={`relative h-4 text-right ${
-                            percent >= 80
+                            percent >= 70
                                 ? 'bg-green-700'
-                                : percent >= 50
+                                : percent >= 40
                                 ? 'bg-yellow-600'
                                 : 'bg-red-700'
                         } rounded-md`}
