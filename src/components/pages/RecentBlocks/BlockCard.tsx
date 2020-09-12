@@ -43,23 +43,23 @@ export default function BlockCard({
                 <div className='w-12 lg:w-16 lg:h-16'>
                     <img className='object-contain' src={imgPath} alt='coin' />
                 </div>
-                <div className='mt-2'>
+                <div className='mt-3'>
                     <h1 className='font-medium truncate text-app_ivory'>{coin_name}</h1>
                     <span className=' text-app_gray'>{algorithm}</span>
                 </div>
             </div>
             <div className='flex justify-between w-4/5 h-full ml-4'>
-                <div className='w-1/3'>
+                <div className='w-1/3 ml-2'>
                     <div>
                         <span className=' text-app_gray'>Miner</span>
-                        <h1 className='text-app_ivory'>{worker_name}</h1>
+                        <h1 className='truncate text-app_ivory'>{worker_name}</h1>
                     </div>
                     <div className='mt-2'>
                         <span className=' text-app_gray'>Value</span>
                         <h1 className='to-app_ivory'>$ {stringToFixed(snapshot_value_usd, 3)}</h1>
                     </div>
                 </div>
-                <div className='w-1/3'>
+                <div className='w-1/3 ml-2'>
                     <div>
                         <span className=' text-app_gray'>Block Reward</span>
                         <h1 className='text-app_ivory'>{stringToFixed(coinbase_value, 3)}</h1>
@@ -69,15 +69,15 @@ export default function BlockCard({
                         <h1 className='to-app_ivory'>{stringToFixed(transaction_fees, 3)}</h1>
                     </div>
                 </div>
-                <div className='w-1/3 mr-0 text-right'>
+                <div className='w-1/3 text-right'>
                     <div>
-                        <span className=' text-app_gray'>Status</span>
+                        <span className='text-app_gray'>Status</span>
                         <h1 className='text-app_ivory'>
                             {is_accepted ? 'Accepted' : is_stale ? 'Stale' : 'Immature'}
                         </h1>
                     </div>
-                    <div className='mt-4'>
-                        <div className=' text-app_gray'>
+                    <div className='mt-6'>
+                        <div className='text-app_gray'>
                             <FontAwesomeIcon icon={faCube} />
                             <span className='ml-1'>
                                 {block_height.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
