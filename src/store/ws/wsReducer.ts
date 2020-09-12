@@ -1,7 +1,9 @@
 import actions from './wsActions';
+import _ from 'lodash';
 
 const defaultState = {
     blocks: [],
+    profitability: [],
 };
 export function wsReducer(state = defaultState, action: any) {
     switch (action.type) {
@@ -13,7 +15,9 @@ export function wsReducer(state = defaultState, action: any) {
             return { ...state, connection };
         case actions.UPDATE_PROFIBILITY:
             // eslint-disable-next-line no-case-declarations
-            const { profitability } = action;
+            const { incoming } = action;
+            // eslint-disable-next-line no-case-declarations
+            const profitability = _.unionBy(incoming, state.profitability, 'algorithm_name');
             return { ...state, profitability };
         case actions.UPDATE_SYSTEM_STATUS:
             // eslint-disable-next-line no-case-declarations
@@ -25,7 +29,9 @@ export function wsReducer(state = defaultState, action: any) {
             return { ...state, hashrate };
         case actions.RECENT_BLOCK:
             // eslint-disable-next-line no-case-declarations
-            const { blocks } = action;
+            const { newBlocks } = action;
+            // eslint-disable-next-line no-case-declarations
+            const blocks = _.unionBy(newBlocks, state.blocks, 'block_hash');
             return { ...state, blocks };
         default:
             return state;

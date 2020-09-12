@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import _ from 'lodash';
 import { useSelector, useDispatch } from 'react-redux';
 import wsActions from '../../store/ws/wsActions';
 import apiActions from '../../store/api/apiActions';
 import { RootState } from '../../types';
+import _ from 'lodash';
 
 export default function Connect({ children }: { children: any }) {
     const connection: any = useSelector<RootState>((state) => state.ws.connection);
-    const profitability: any = useSelector<RootState>((state) => state.ws.profitability);
-    const blocks: any = useSelector<RootState>((state) => state.ws.blocks);
     const dispatch = useDispatch();
-    const [incoming, setIncoming] = useState();
-    const [newBlocks, setNewBlocks] = useState();
+    const [incoming, setIncoming] = useState([]);
+    const [newBlocks, setNewBlocks] = useState([]);
     useEffect(() => {
         dispatch({
             type: apiActions.FETCH_IMG,
@@ -60,14 +58,16 @@ export default function Connect({ children }: { children: any }) {
     useEffect(() => {
         dispatch({
             type: wsActions.UPDATE_PROFIBILITY,
-            profitability: _.unionBy(incoming, profitability, 'algorithm_name'),
+            incoming,
         });
     }, [dispatch, incoming]);
 
     useEffect(() => {
         dispatch({
             type: wsActions.RECENT_BLOCK,
-            blocks: newBlocks && blocks ? _.unionBy(newBlocks, blocks, 'block_hash') : [],
+            newBlocks: _.map(newBlocks, (e) => {
+                return _.extend({}, e, { now: new Date() });
+            }),
         });
     }, [dispatch, newBlocks]);
 

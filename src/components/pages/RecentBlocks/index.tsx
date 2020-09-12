@@ -16,26 +16,30 @@ export default function RecentBlocks() {
                             coin_name,
                             is_accepted,
                             block_height,
+                            block_hash,
                             coinbase_value,
                             transaction_fees,
                             snapshot_value_usd,
                             auxiliary,
                             algorithm,
                             is_stale,
+                            now,
                         }: {
                             worker_name: string;
                             coin_name: string;
                             is_accepted: boolean;
                             block_height: number;
+                            block_hash: string;
                             coinbase_value: string;
                             transaction_fees: string;
                             snapshot_value_usd: string;
                             auxiliary: boolean;
                             algorithm: string;
                             is_stale: boolean;
+                            now: Date;
                         }) => (
                             <BlockCard
-                                key={coin_name + block_height}
+                                key={coin_name + block_hash}
                                 worker_name={worker_name || 'Null'}
                                 coin_name={coin_name || 'Null'}
                                 is_accepted={is_accepted || false}
@@ -46,6 +50,7 @@ export default function RecentBlocks() {
                                 auxiliary={auxiliary || false}
                                 algorithm={algorithm || 'Null'}
                                 is_stale={is_stale || false}
+                                now={now}
                             />
                         )
                     )}

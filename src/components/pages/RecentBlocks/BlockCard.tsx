@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../types';
 import { Card } from '../../core';
@@ -19,6 +19,7 @@ export default function BlockCard({
     auxiliary,
     algorithm,
     is_stale,
+    now,
 }: {
     worker_name: string;
     coin_name: string;
@@ -30,12 +31,11 @@ export default function BlockCard({
     auxiliary: boolean;
     algorithm: string;
     is_stale: boolean;
+    now: Date;
 }) {
     const img_url: any = useSelector<RootState>((state) => state.api.img_url);
     const coin = _.find(img_url, ['name', coin_name]);
     const imgPath = `https://images.prohashing.com/coins/${coin.image_filename}`;
-
-    const [now] = useState(new Date());
 
     return (
         <Card className='flex justify-between text-xs fade-in lg:text-base'>
