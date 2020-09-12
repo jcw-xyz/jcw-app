@@ -42,7 +42,7 @@ function HashrateCard({
                 </div>
                 <div className='w-2/5 leading-tight text-right'>
                     <h1>{isEquihashUSD(max_usd)} ¢</h1>
-                    <span className='text-xs text-app_gray'>{isEquihashBTC(max_btc)} BTC</span>
+                    <span className='text-xs text-app_gray'>{isEquihashBTC(max_btc)} ₿</span>
                 </div>
             </div>
             <div className='mt-12'>
@@ -66,7 +66,7 @@ function HashrateCard({
                             }`}
                         >
                             <h1>{isEquihashUSD(usd)} ¢</h1>
-                            <span className='text-xs text-app_gray'>{isEquihashBTC(btc)} BTC</span>
+                            <span className='text-xs text-app_gray'>{isEquihashBTC(btc)} ₿</span>
                         </div>
                     </div>
                 </div>
