@@ -15,7 +15,7 @@ $ yarn start
 -   [x] live profit page
 -   [x] recent blocks page
 -   [ ] charts page
--   [ ] search page
+-   [ ] report page
 
 ### Fix
 
