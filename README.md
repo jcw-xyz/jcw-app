@@ -21,4 +21,4 @@ $ yarn start
 
 -   [x] add live profit card bar animation
 -   [x] fix block card img issue
--   [ ] fix block card time ago width
+-   [x] fix block card time ago width

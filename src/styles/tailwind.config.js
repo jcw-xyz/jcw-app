@@ -6,6 +6,8 @@ module.exports = {
                 '1/2': '50%',
                 '1': '1%',
                 '2': '2%',
+                '4': '1rem',
+                '8': '2rem',
             },
             colors: {
                 app_ivory: '#F2ECE4',
