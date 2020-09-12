@@ -6,7 +6,6 @@ export function apiReducer(state = defaultState, action: any) {
         case actions.FETCH_IMG:
             return Object.assign({}, state, action);
         case actions.FETCH_IMG_SUCC:
-            // eslint-disable-next-line no-case-declarations
             const { img_url, status_code } = action;
             return { ...state, img_url, status_code };
         default:

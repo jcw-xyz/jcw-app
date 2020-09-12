@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import wsActions from '../../store/ws/wsActions';
 import apiActions from '../../store/api/apiActions';
 import { RootState } from '../../types';
-import _ from 'lodash';
 
 export default function Connect({ children }: { children: any }) {
     const connection: any = useSelector<RootState>((state) => state.ws.connection);
@@ -65,9 +64,7 @@ export default function Connect({ children }: { children: any }) {
     useEffect(() => {
         dispatch({
             type: wsActions.RECENT_BLOCK,
-            newBlocks: _.map(newBlocks, (e) => {
-                return _.extend({}, e, { now: new Date() });
-            }),
+            newBlocks,
         });
     }, [dispatch, newBlocks]);
 
