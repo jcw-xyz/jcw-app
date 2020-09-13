@@ -18,7 +18,7 @@ export default function Report() {
 
     return (
         <Content className='pt-10'>
-            <h1 className='pt-8 pl-4'>
+            <h1 className='pt-8 pl-4 text-xl font-medium'>
                 Daily Pool Profit {date.getMonth() + 1 < 10 ? '0' : ''}
                 {date.getMonth() + 1}-{date.getDate() < 10 ? '0' : ''}
                 {date.getDate()}-{date.getFullYear()}
