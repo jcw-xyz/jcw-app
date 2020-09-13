@@ -39,6 +39,7 @@ function RecentBlocks() {
                             now: Date;
                         }) => (
                             <BlockCard
+                                key={coin_name + block_hash}
                                 worker_name={worker_name || 'Null'}
                                 coin_name={coin_name || 'Null'}
                                 is_accepted={is_accepted || false}
