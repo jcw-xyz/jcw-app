@@ -1,0 +1,2 @@
+(this["webpackJsonpjcw-app"]=this["webpackJsonpjcw-app"]||[]).push([[3],{402:function(e,t,n){"use strict";n.r(t),n.d(t,"default",(function(){return s}));var c=n(0),a=n.n(c),u=n(102),r=n(47),p=n(11);function s(){var e=Object(r.b)();return Object(c.useEffect)((function(){e({type:p.a.FETCH_POOL_DEBT})}),[e]),a.a.createElement(u.c,{className:"pt-20"},a.a.createElement("ul",null,a.a.createElement(u.a,null,"under construction")))}}}]);
+//# sourceMappingURL=3.fab1f4f6.chunk.js.map
