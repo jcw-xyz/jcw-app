@@ -49,7 +49,7 @@ export default function Row({
                         : 'text-red-700'
                 }`}
             >
-                {percent.toFixed(2)}
+                {percent.toFixed(2)}%
             </th>
         </tr>
     );
