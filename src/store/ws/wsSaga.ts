@@ -9,7 +9,6 @@ function* connectWS() {
             _debug: false,
             subscribe: 'all',
         });
-        console.log(connection);
         yield put({
             type: actions.CONNECT_SUCC,
             connection,

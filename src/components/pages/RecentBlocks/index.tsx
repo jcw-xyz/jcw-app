@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { Content } from '../../core';
-import BlockCard from './BlockCard';
 import { RootState } from '../../../types';
+import BlockCard from './BlockCard';
 
-export default function RecentBlocks() {
+function RecentBlocks() {
     const blocks: any = useSelector<RootState>((state) => state.ws.blocks);
     return (
         <Content>
@@ -39,7 +39,6 @@ export default function RecentBlocks() {
                             now: Date;
                         }) => (
                             <BlockCard
-                                key={coin_name + block_hash}
                                 worker_name={worker_name || 'Null'}
                                 coin_name={coin_name || 'Null'}
                                 is_accepted={is_accepted || false}
@@ -61,3 +60,5 @@ export default function RecentBlocks() {
         </Content>
     );
 }
+
+export default memo(RecentBlocks);
