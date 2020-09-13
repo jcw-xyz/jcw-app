@@ -3,11 +3,12 @@ import axios from 'axios';
 import actions from './apiActions';
 import { SUCCESS, FAILED, ERROR } from './constant';
 
+const cors: string = 'https://cors-anywhere.herokuapp.com/';
 const url: string = 'https://prohashing.com/';
 
 function* getImgUrl() {
     try {
-        const { status, data } = yield call(axios.get, url + 'coin/images');
+        const { status, data } = yield call(axios.get, cors + url + 'coin/images');
 
         if (status === 200) {
             yield put({
@@ -32,7 +33,7 @@ function* getImgUrl() {
 
 function* getPoolDebt() {
     try {
-        const { status, data } = yield call(axios.get, url + 'statusPoolDebt');
+        const { status, data } = yield call(axios.get, cors + url + 'statusPoolDebt');
         if (status === 200) {
             yield put({
                 type: actions.FETCH_POOL_DEBT_SUCC,
@@ -54,7 +55,7 @@ function* getReport() {
     try {
         const { status, data } = yield call(
             axios.get,
-            url + `maintenance/profit?startDate=${state}`
+            cors + url + `maintenance/profit?startDate=${state}`
         );
         if (status === 200) {
             yield put({
