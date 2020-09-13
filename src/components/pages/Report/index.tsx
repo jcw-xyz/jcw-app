@@ -27,8 +27,8 @@ export default function Report() {
                     <thead className='text-app_gray'>
                         <tr>
                             <th className='sticky top-0 pt-4 bg-black'>Coin Name</th>
-                            <th className='sticky top-0 pt-4 pl-4 bg-black'>Mined</th>
-                            <th className='sticky top-0 pt-4 pl-4 bg-black'>PnL%</th>
+                            <th className='sticky top-0 px-2 pt-4 bg-black'>Mined</th>
+                            <th className='sticky top-0 pt-4 bg-black'>PnL%</th>
                         </tr>
                     </thead>
                     <tbody>
