@@ -14,9 +14,9 @@ function LiveProfit() {
             {profitability && hashrate && system && (
                 <>
                     <div className='pl-4'>
-                        <h1 className='text-app_gray'>Connected workers</h1>
+                        <h1 className='text-app_gray'>Connected Workers</h1>
                         <span className='text-2xl font-medium text-app_ivory'>{system[0]}</span>
-                        <h1 className='mt-2 text-app_gray'>Available blocks</h1>
+                        <h1 className='mt-2 text-app_gray'>Available Blocks</h1>
                         <span className='text-2xl font-medium text-app_ivory'>{system[1]}</span>
                     </div>
                     <ul className='mt-8'>
