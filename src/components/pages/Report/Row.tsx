@@ -39,7 +39,7 @@ export default function Row({
     return (
         <tr key={coin_id} className=' text-app_ivory'>
             <th className='pt-4'>{coin_name}</th>
-            <th className='px-2 pt-4'>{reward_sum.toFixed(3)}</th>
+            <th className='pt-4'>{reward_sum.toFixed(3)}</th>
             <th
                 className={`pt-4  ${
                     percent === 0
