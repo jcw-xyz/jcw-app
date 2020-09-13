@@ -13,12 +13,7 @@ export default function Charts() {
     return (
         <Content className='pt-20'>
             <ul>
-                <Card>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti praesentium
-                    doloribus magni sit sequi voluptate molestias nam iusto deserunt consectetur
-                    exercitationem voluptatem numquam a dignissimos, assumenda maiores, unde tempore
-                    illo?
-                </Card>
+                <Card>under construction</Card>
             </ul>
         </Content>
     );

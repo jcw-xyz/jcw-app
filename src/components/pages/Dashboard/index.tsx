@@ -12,11 +12,11 @@ export default function Dashboard() {
                 <h1 className='pl-4 text-app_ivory'> Enter API Key</h1>
                 <Card className='flex items-center justify-between'>
                     <input
-                        className='w-full pb-2 border-b outline-none bg-app_dark border-app_ivory'
+                        className='w-full pb-2 border-b outline-none bg-app_dark border-app_gray'
                         type='text'
                         placeholder='Enter api key to connect (please contact us if you need one)'
                     />
-                    <button className='px-4 py-2 ml-4 border outline-none rounded-md border-app_ivory focus:outline-none'>
+                    <button className='px-4 py-2 ml-4 border outline-none text-app_ivory focus:text-app_gray rounded-md border-app_gray focus:outline-none'>
                         Enter
                     </button>
                 </Card>
