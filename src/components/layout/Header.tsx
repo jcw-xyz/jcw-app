@@ -3,7 +3,11 @@ import { A } from 'hookrouter';
 
 export default function Header({ path }: { path: string }) {
     return (
-        <div className='absolute top-0 z-10 flex justify-between w-full px-8 pt-4 text-xl font-medium bg-black opacity-90'>
+        <div
+            className={`absolute top-0 z-10 flex justify-between w-full px-8 pt-4 text-xl font-medium bg-black opacity-90 ${
+                path === '/report' ? 'pb-0' : 'pb-0'
+            }`}
+        >
             {path === '/' || path === '/blocks' ? (
                 <>
                     <A href='/' className={path === '/' ? 'text-app_ivory' : 'text-app_gray'}>

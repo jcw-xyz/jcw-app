@@ -10,7 +10,7 @@ function LiveProfit() {
     const profitability: any = useSelector<RootState>((state) => state.ws.profitability);
 
     return (
-        <Content>
+        <Content className='pt-20'>
             {profitability && hashrate && system && (
                 <>
                     <div className='pl-4'>

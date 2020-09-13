@@ -11,7 +11,7 @@ export default function Charts() {
         });
     }, [dispatch]);
     return (
-        <Content>
+        <Content className='pt-20'>
             <ul>
                 <Card>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti praesentium

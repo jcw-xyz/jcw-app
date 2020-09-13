@@ -7,7 +7,7 @@ import BlockCard from './BlockCard';
 function RecentBlocks() {
     const blocks: any = useSelector<RootState>((state) => state.ws.blocks);
     return (
-        <Content>
+        <Content className='pt-20'>
             {blocks.length > 1 ? (
                 <ul>
                     {blocks.map(
