@@ -19,16 +19,14 @@ const LiveProfit = lazy(() => import('./components/pages/LiveProfit'));
 const RecentBlocks = lazy(() => import('./components/pages/RecentBlocks'));
 const Charts = lazy(() => import('./components/pages/Charts'));
 const Report = lazy(() => import('./components/pages/Report'));
-const Settings = lazy(() => import('./components/pages/Settings'));
-const Profile = lazy(() => import('./components/pages/Profile'));
+const Dashbord = lazy(() => import('./components/pages/Dashboard'));
 
 const routes = {
     '/': () => <LiveProfit />,
     '/blocks': () => <RecentBlocks />,
     '/charts': () => <Charts />,
     '/report': () => <Report />,
-    '/settings': () => <Settings />,
-    '/profile': () => <Profile />,
+    '/dashboard': () => <Dashbord />,
 };
 
 function Root() {

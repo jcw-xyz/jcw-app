@@ -1,7 +1,7 @@
 import React from 'react';
 import { A } from 'hookrouter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faChartPie, faCog, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faChartPie, faFileAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 
 function Nav() {
     return (
@@ -16,8 +16,8 @@ function Nav() {
                 <A href='/report'>
                     <FontAwesomeIcon icon={faFileAlt} />
                 </A>
-                <A href='/settings'>
-                    <FontAwesomeIcon icon={faCog} />
+                <A href='/dashboard'>
+                    <FontAwesomeIcon icon={faUser} />
                 </A>
             </nav>
         </div>
