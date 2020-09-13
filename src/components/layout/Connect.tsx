@@ -9,6 +9,7 @@ export default function Connect({ children }: { children: any }) {
     const dispatch = useDispatch();
     const [incoming, setIncoming] = useState([]);
     const [newBlocks, setNewBlocks] = useState([]);
+    const [newBalance, setnewBalance] = useState([]);
     useEffect(() => {
         dispatch({
             type: apiActions.FETCH_IMG,
@@ -67,6 +68,13 @@ export default function Connect({ children }: { children: any }) {
             newBlocks,
         });
     }, [dispatch, newBlocks]);
+
+    useEffect(() => {
+        dispatch({
+            type: wsActions.UPDATE_BALANCE,
+            newBalance,
+        });
+    }, [dispatch, newBalance]);
 
     return <>{children}</>;
 }

@@ -9,19 +9,24 @@ export function wsReducer(state = defaultState, action: any) {
     switch (action.type) {
         case actions.CONNECT:
             return Object.assign({}, state, action);
+
         case actions.CONNECT_SUCC:
             const { connection } = action;
             return { ...state, connection };
+
         case actions.UPDATE_PROFIBILITY:
             const { incoming } = action;
             const profitability = _.unionBy(incoming, state.profitability, 'algorithm_name');
             return { ...state, profitability };
+
         case actions.UPDATE_SYSTEM_STATUS:
             const { system_status } = action;
             return { ...state, system_status };
+
         case actions.UPDATE_HASHRATE:
             const { hashrate } = action;
             return { ...state, hashrate };
+
         case actions.RECENT_BLOCK:
             const { newBlocks } = action;
             const arr = _.map(newBlocks, (e) => {
@@ -29,6 +34,10 @@ export function wsReducer(state = defaultState, action: any) {
             });
             const blocks = _.unionBy(arr, state.blocks, 'block_hash');
             return { ...state, blocks };
+
+        case actions.UPDATE_BALANCE:
+            const { newBalance } = action;
+            return { ...state, balance: newBalance };
         default:
             return state;
     }
