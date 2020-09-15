@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom';
-import { useRoutes, usePath } from 'hookrouter';
+import { useRoutes, usePath, setBasepath } from 'hookrouter';
 import { Provider } from 'react-redux';
 
 import * as serviceWorker from './serviceWorker';
@@ -20,6 +20,8 @@ const RecentBlocks = lazy(() => import('./components/pages/RecentBlocks'));
 const Charts = lazy(() => import('./components/pages/Charts'));
 const Report = lazy(() => import('./components/pages/Report'));
 const Dashbord = lazy(() => import('./components/pages/Dashboard'));
+
+setBasepath('https://app.jcwmining.xyz');
 
 const routes = {
     '/': () => <LiveProfit />,
