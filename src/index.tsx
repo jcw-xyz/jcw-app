@@ -21,7 +21,7 @@ const Charts = lazy(() => import('./components/pages/Charts'));
 const Report = lazy(() => import('./components/pages/Report'));
 const Dashbord = lazy(() => import('./components/pages/Dashboard'));
 
-setBasepath('https://app.jcwmining.xyz');
+setBasepath('/jcw-app');
 
 const routes = {
     '/': () => <LiveProfit />,
