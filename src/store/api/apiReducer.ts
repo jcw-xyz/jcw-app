@@ -23,6 +23,16 @@ export function apiReducer(state = defaultState, action: any) {
         case actions.FETCH_POOL_DEBT_FAILED:
             return { ...state, status_code: action.status_code };
 
+        case actions.FETCH_MINER_COUNT:
+            return Object.assign({}, state, action);
+
+        case actions.FETCH_MINER_COUNT_SUCC:
+            const { miner_count } = action;
+            return { ...state, miner_count, status_code: action.status_code };
+
+        case actions.FETCH_MINER_COUNT_FAILED:
+            return { ...state, status_code: action.status_code };
+
         case actions.FETCH_REPORT:
             return Object.assign({}, state, action);
 

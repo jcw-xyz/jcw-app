@@ -9,7 +9,7 @@ export default function Connect({ children }: { children: any }) {
     const dispatch = useDispatch();
     const [incoming, setIncoming] = useState([]);
     const [newBlocks, setNewBlocks] = useState([]);
-    const [newBalance, setnewBalance] = useState([]);
+    const [newBalance] = useState([]);
     useEffect(() => {
         dispatch({
             type: apiActions.FETCH_IMG,

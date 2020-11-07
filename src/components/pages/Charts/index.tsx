@@ -1,19 +1,25 @@
-import React, { useEffect } from 'react';
-import { Content, Card } from '../../core';
-import { useDispatch } from 'react-redux';
-import apiActions from '../../../store/api/apiActions';
+import React, { lazy, Suspense } from 'react';
+import { Content } from '../../core';
+const MinerCount = lazy(() => import('./components/MinerCount'));
+const PoolDebt = lazy(() => import('./components/PoolDebt'));
 
 export default function Charts() {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({
-            type: apiActions.FETCH_POOL_DEBT,
-        });
-    }, [dispatch]);
     return (
         <Content className='pt-20'>
             <ul>
-                <Card>under construction</Card>
+                <div>
+                    <h1 className='pl-4 text-app_ivory'>Connected Miners</h1>
+
+                    <Suspense fallback={<></>}>
+                        <MinerCount />
+                    </Suspense>
+                </div>
+                <div className='mt-8'>
+                    <h1 className='pl-4 text-app_ivory'>Pool Debt</h1>
+                    <Suspense fallback={<></>}>
+                        <PoolDebt />
+                    </Suspense>
+                </div>
             </ul>
         </Content>
     );

@@ -77,8 +77,38 @@ function* getReport() {
     }
 }
 
+function* getMinerCount() {
+    const today = new Date().getTime();
+    const week = 604800000;
+    try {
+        const { status, data } = yield call(
+            axios.get,
+            cors + url + `miner?startTime=${today - week}&endTime=${today}`
+        );
+
+        if (status === 200) {
+            yield put({
+                type: actions.FETCH_MINER_COUNT_SUCC,
+                miner_count: data,
+                status_code: SUCCESS,
+            });
+            return;
+        }
+        yield put({
+            type: actions.FETCH_IMG,
+            status_code: FAILED,
+        });
+    } catch (e) {
+        yield put({
+            type: actions.FETCH_MINER_COUNT_FAILED,
+            status_code: ERROR,
+        });
+    }
+}
+
 export function* apiSaga() {
     yield takeLatest(actions.FETCH_IMG, getImgUrl);
     yield takeLatest(actions.FETCH_POOL_DEBT, getPoolDebt);
     yield takeLatest(actions.FETCH_REPORT, getReport);
+    yield takeLatest(actions.FETCH_MINER_COUNT, getMinerCount);
 }
