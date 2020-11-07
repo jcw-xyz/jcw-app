@@ -29,3 +29,5 @@ $ yarn start
 -   [x] fix block card img issue
 -   [x] fix block card time ago width
 -   [ ] define types
+-   [ ] fix scroll lock
+-   [ ] change hookrouter to react-router-dom and use HashRouter to fix page reload crash issue
