@@ -16,7 +16,7 @@ $ yarn start
 -   [x] recent blocks page
 -   [x] report page
 -   [x] dashboard page
--   [] charts page
+-   [ ] charts page
     -   [x] miner counts chart
     -   [x] pool debt chart
     -   [ ] hashrate chart per algo
