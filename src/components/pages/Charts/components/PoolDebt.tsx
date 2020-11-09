@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import apiActions from '../../../../store/api/apiActions';
 import { RootState } from '../../../../types';
 import _ from 'lodash';
+import wordhex from 'wordhex';
 
 export default function PoolDebt() {
     const dispatch = useDispatch();
@@ -21,18 +22,9 @@ export default function PoolDebt() {
                     datasets: [
                         {
                             data: _.map(pool_debt, 'value'),
-                            backgroundColor: [
-                                '#DBDAD9',
-                                '#CF007B',
-                                '#B3C8F2',
-                                '#19D5DA',
-                                '#36A2EB',
-                                '#F25C05',
-                                '#C1D0D9',
-                                '#3F5765',
-                                '#85BB65',
-                                '#F1D179',
-                            ],
+                            backgroundColor: _.map(_.map(pool_debt, 'value'), (elm) =>
+                                wordhex(elm + '127340327')
+                            ),
                             borderWidth: 0,
                         },
                     ],
