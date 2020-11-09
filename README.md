@@ -31,3 +31,4 @@ $ yarn start
 -   [ ] define types
 -   [ ] fix scroll lock
 -   [ ] change hookrouter to react-router-dom and use HashRouter to fix page reload crash issue
+-   [ ] define coin colors for pool_debt chart
